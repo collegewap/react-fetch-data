@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-const UsingFetch = () => {
+const ButtonClick = () => {
   const [users, setUsers] = useState([]);
 
   const fetchData = () => {
@@ -13,12 +13,9 @@ const UsingFetch = () => {
       });
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   return (
     <div>
+      <button onClick={fetchData}>Fetch Users</button>
       {users.length > 0 && (
         <ul>
           {users.map((user) => (
@@ -30,4 +27,4 @@ const UsingFetch = () => {
   );
 };
 
-export default UsingFetch;
+export default ButtonClick;

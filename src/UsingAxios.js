@@ -1,15 +1,18 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const UsingFetch = () => {
+const UsingAxios = () => {
   const [users, setUsers] = useState([]);
 
   const fetchData = () => {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
       .then((response) => {
-        return response.json();
+        setUsers(response.data);
       })
-      .then((data) => {
-        setUsers(data);
+      .catch((error) => {
+        console.log({ error });
+        // Handle error
       });
   };
 
@@ -30,4 +33,4 @@ const UsingFetch = () => {
   );
 };
 
-export default UsingFetch;
+export default UsingAxios;

@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-const UsingFetch = () => {
+const AsyncAwait = () => {
   const [users, setUsers] = useState([]);
 
-  const fetchData = () => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setUsers(data);
-      });
+  const fetchData = async () => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await response.json();
+    setUsers(data);
   };
 
   useEffect(() => {
@@ -30,4 +26,4 @@ const UsingFetch = () => {
   );
 };
 
-export default UsingFetch;
+export default AsyncAwait;

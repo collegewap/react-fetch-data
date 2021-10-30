@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-const UsingFetch = () => {
+const SearchUser = () => {
   const [users, setUsers] = useState([]);
 
-  const fetchData = () => {
-    fetch("https://jsonplaceholder.typicode.com/users")
+  const fetchData = (e) => {
+    const query = e.target.value;
+    fetch(`https://jsonplaceholder.typicode.com/users?q=${query}`)
       .then((response) => {
         return response.json();
       })
@@ -13,12 +14,9 @@ const UsingFetch = () => {
       });
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   return (
     <div>
+      <input onChange={fetchData} label="Search User" />
       {users.length > 0 && (
         <ul>
           {users.map((user) => (
@@ -30,4 +28,4 @@ const UsingFetch = () => {
   );
 };
 
-export default UsingFetch;
+export default SearchUser;

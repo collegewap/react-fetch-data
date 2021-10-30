@@ -3,6 +3,13 @@ body {
   justify-content: center;
 }
 
+.content {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
 .App button {
   width: 100px;
   margin: 0 auto;
@@ -12,4 +19,29 @@ body {
 .App input {
   margin: 0 auto;
   display: block;
+}
+
+nav ul li {
+  padding: 0;
+  margin: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav ul a {
+  text-decoration: none;
+}
+
+nav ul li {
+  padding: 10px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+nav ul:nth-child(n) {
+  border-right: 1px solid;
 }

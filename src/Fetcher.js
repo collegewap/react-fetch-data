@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Fetcher = (url) => {
+const Fetcher = ({ url, children }) => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +20,7 @@ const Fetcher = (url) => {
       });
   }, [url]);
 
-  return this.props.children({ users, error, isLoading });
+  return children({ users, error, isLoading });
 };
 
 export default Fetcher;
